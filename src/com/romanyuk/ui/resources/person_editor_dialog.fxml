@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="604.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/11.0.1"
+            fx:controller="com.romanyuk.ui.main.views.PersonEditorDialogController">
+    <GridPane layoutY="-27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+              prefHeight="598.0" prefWidth="592.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.topAnchor="8.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="131.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="470.0" minWidth="10.0" prefWidth="469.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="162.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <padding>
+            <Insets right="8.0"/>
+        </padding>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="300.0" text="Имя*"
+               textAlignment="CENTER"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="300.0" text="Фамилия*"
+               textAlignment="CENTER" GridPane.rowIndex="1"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="300.0" text="Отчество"
+               textAlignment="CENTER" GridPane.rowIndex="2"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="300.0"
+               text="Мобильный телефон*" textAlignment="CENTER" GridPane.rowIndex="3"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="300.0" text="Адрес"
+               textAlignment="CENTER" GridPane.rowIndex="5"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="300.0" text="День рождения*"
+               textAlignment="CENTER" GridPane.rowIndex="6"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="300.0" text="Комментарий"
+               textAlignment="CENTER" GridPane.rowIndex="7"/>
+        <DatePicker fx:id="birthDayDatePicker" prefHeight="36.0" prefWidth="472.0" promptText="24.07.2001"
+                    GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <TextField fx:id="addressTextField" prefHeight="42.0" prefWidth="431.0"
+                   promptText="Москва, ул. Покровский бульвар, 11" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <TextField fx:id="mobilePhoneTextField" prefHeight="42.0" prefWidth="431.0" promptText="+79887026030"
+                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <TextField fx:id="thirdNameTextField" prefHeight="42.0" prefWidth="431.0" promptText="Сергеевич"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <TextField fx:id="secondNameTextField" prefHeight="42.0" prefWidth="431.0" promptText="Опарин"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <TextField fx:id="firstNameTextField" prefHeight="42.0" prefWidth="431.0" promptText="Олег"
+                   GridPane.columnIndex="1"/>
+        <TextArea fx:id="commentTextArea" prefHeight="200.0" prefWidth="200.0"
+                  promptText="Тут можно указать совершенно любой многострочный комментарий."
+                  GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="300.0"
+               text="Домашний телефон" textAlignment="CENTER" GridPane.rowIndex="4"/>
+        <TextField fx:id="homePhoneTextField" prefHeight="42.0" prefWidth="431.0" promptText="+79887026030"
+                   GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#onContinue" prefHeight="85.0"
+                    prefWidth="494.0" text="Применить">
+                <GridPane.margin>
+                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                </GridPane.margin>
+            </Button>
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#onCancel" prefHeight="72.0"
+                    prefWidth="130.0" text="Отмена" textAlignment="CENTER" GridPane.columnIndex="2">
+                <GridPane.margin>
+                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                </GridPane.margin>
+            </Button>
+            <Button layoutX="328.0" layoutY="18.0" mnemonicParsing="false" onAction="#onReset" prefHeight="64.0"
+                    prefWidth="204.0" text="Сбросить" textAlignment="CENTER" GridPane.columnIndex="1">
+                <GridPane.margin>
+                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                </GridPane.margin>
+            </Button>
+        </GridPane>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="449.0" lineSpacing="1.0"
+               prefHeight="28.0" prefWidth="465.0" text="* - обязательно к заполнению" textAlignment="CENTER"
+               textOverrun="LEADING_ELLIPSIS" underline="true" wrapText="true" GridPane.columnIndex="1"
+               GridPane.rowIndex="9"/>
+    </GridPane>
+</AnchorPane>

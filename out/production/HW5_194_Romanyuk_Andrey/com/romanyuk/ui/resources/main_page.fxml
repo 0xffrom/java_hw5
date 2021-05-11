@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1"
+      fx:controller="com.romanyuk.ui.main.MainController">
+    <MenuBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+             VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="Файл">
+            <MenuItem mnemonicParsing="false" onAction="#onAddPerson" text="Добавить"/>
+            <MenuItem mnemonicParsing="false" onAction="#onEditPerson" text="Редактировать"/>
+            <MenuItem mnemonicParsing="false" onAction="#onRemovePerson" text="Удалить"/>
+            <MenuItem mnemonicParsing="false" onAction="#onExit" text="Выход"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Настройки">
+            <MenuItem mnemonicParsing="false" onAction="#onExport" text="Экспортировать"/>
+            <MenuItem mnemonicParsing="false" onAction="#onImport" text="Импортировать"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Справка">
+            <MenuItem mnemonicParsing="false" onAction="#onOpenInfo" text="О приложении"/>
+        </Menu>
+    </MenuBar>
+    <SplitPane dividerPositions="0.2182628062360802" focusTraversable="true" VBox.vgrow="ALWAYS">
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="229.0"
+                    SplitPane.resizableWithParent="false">
+            <padding>
+                <Insets left="16.0"/>
+            </padding>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" style="&#10;"
+                   text="Меню" textAlignment="CENTER">
+                <font>
+                    <Font size="18.0" fx:id="x1"/>
+                </font>
+                <textFill>
+                    <Color red="0.624" green="0.624" blue="0.624" fx:id="x2"/>
+                </textFill>
+            </Label>
+            <Button layoutX="16.0" layoutY="95.0" mnemonicParsing="false" onAction="#onAddPerson"
+                    prefHeight="27.0" prefWidth="193.0" text="Добавить запись"/>
+            <Button layoutX="16.0" layoutY="131.0" mnemonicParsing="false" onAction="#onRemovePerson"
+                    prefHeight="27.0" prefWidth="193.0" text="Удалить выделенную запись"/>
+            <TextField fx:id="searchField" layoutX="16.0" layoutY="169.0" prefHeight="27.0"
+                       prefWidth="193.0"/>
+            <Button layoutX="16.0" layoutY="59.0" mnemonicParsing="false" onAction="#onEditPerson"
+                    prefHeight="27.0" prefWidth="193.0" text="Изменить выделенную запись"/>
+            <Button layoutX="16.0" layoutY="206.0" mnemonicParsing="false" onAction="#onFilter"
+                    prefHeight="27.0" prefWidth="193.0" text="Поиск"/>
+        </AnchorPane>
+        <TableView xmlns:fx="http://javafx.com/fxml/1" fx:id="tableView" minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="551.0" prefWidth="680.0"
+                   xmlns="http://javafx.com/javafx/10.0.1">
+            <columns>
+                <TableColumn text="Имя">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="firstName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Фамилия">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="secondName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Отчество">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="thirdName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Мобильный/Домашний телефон">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="phone"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Адрес">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="address"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="День рождение">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="birthDay"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Комментарий">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="comment"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <padding>
+                <Insets right="17.0"/>
+            </padding>
+        </TableView>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+        <children>
+            <Label maxHeight="1.7976931348623157E308" text="Left status" HBox.hgrow="ALWAYS">
+                <font>
+                    <Font size="11.0" fx:id="x3"/>
+                </font>
+                <textFill>
+                    <Color red="0.625" green="0.625" blue="0.625" fx:id="x4"/>
+                </textFill>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label font="$x3" text="Right status" textFill="$x4" HBox.hgrow="NEVER"/>
+        </children>
+        <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+        </padding>
+    </HBox>
+</VBox>
