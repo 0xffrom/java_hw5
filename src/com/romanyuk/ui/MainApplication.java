@@ -1,5 +1,6 @@
 package com.romanyuk.ui;
 
+import com.romanyuk.data.db.DatabaseConnImpl;
 import com.romanyuk.data.repositories.PersonRepositoryImpl;
 import com.romanyuk.ui.main.MainController;
 import com.romanyuk.ui.main.MainPresenterImpl;
@@ -45,7 +46,8 @@ public class MainApplication extends Application {
      * @param mainController - контроллер.
      */
     public static void inject(MainController mainController) {
-        mainController.injectPresenter(new MainPresenterImpl(mainController, new PersonRepositoryImpl()));
+        var databaseConn = DatabaseConnImpl.getInstance();
+        mainController.injectPresenter(new MainPresenterImpl(mainController, new PersonRepositoryImpl(databaseConn)));
     }
 
     @Override

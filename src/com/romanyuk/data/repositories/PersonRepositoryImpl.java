@@ -1,7 +1,6 @@
 package com.romanyuk.data.repositories;
 
 import com.romanyuk.data.db.DatabaseConn;
-import com.romanyuk.data.db.DatabaseConnImpl;
 import com.romanyuk.data.db.converter.Converter;
 import com.romanyuk.data.db.converter.PersonConverter;
 import com.romanyuk.data.db.dto.PersonDto;
@@ -12,8 +11,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PersonRepositoryImpl implements PersonRepository {
-    private final DatabaseConn databaseConn = DatabaseConnImpl.getInstance();
+    private final DatabaseConn databaseConn;
     private final Converter<Person, PersonDto> personConverter = new PersonConverter();
+
+    public PersonRepositoryImpl(DatabaseConn databaseConn) {
+        this.databaseConn = databaseConn;
+    }
 
     @Override
     public List<Person> getPersons() {
